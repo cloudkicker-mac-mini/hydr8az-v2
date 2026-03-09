@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSpa Services — HYDR8AZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{'hydr8':{50:'#ececfb',100:'#d5d5f7',200:'#ababef',300:'#8888e7',400:'#6565e5',500:'#4949a6',600:'#3a3a85',700:'#2c2c64',800:'#1e1e2f',900:'#141420'},'coral':'#E67373'},fontFamily:{'sans':['"Inter"','sans-serif'],'display':['"Playfair Display"','serif']}}}}</script>
+    <style>html{scroll-behavior:smooth}.nav-blur{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.fade-up{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}.fade-up.visible{opacity:1;transform:translateY(0)}.mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/90 border-b border-gray-200/50"><div class="max-w-6xl mx-auto px-5"><div class="flex items-center justify-between h-16"><a href="index.html" class="text-xl font-bold tracking-tight"><span class="text-hydr8-400">HYDR8</span><span class="text-gray-900">AZ</span></a><div class="hidden md:flex items-center gap-6"><a href="iv-therapy.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">IV Therapy</a><a href="medspa.html" class="text-sm font-semibold text-hydr8-400">MedSpa</a><a href="about.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">About</a><a href="book.html" class="bg-hydr8-400 hover:bg-hydr8-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors">Book Now</a></div><button id="menuBtn" class="md:hidden p-2 text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></div></nav>
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-white z-50 shadow-2xl"><div class="p-6"><div class="flex justify-between items-center mb-8"><span class="text-lg font-bold"><span class="text-hydr8-400">HYDR8</span>AZ</span><button id="menuClose" class="p-2 text-gray-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="space-y-2"><a href="iv-therapy.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">IV Therapy</a><a href="medspa.html" class="block px-4 py-3 bg-hydr8-50 text-hydr8-400 rounded-xl font-medium">MedSpa</a><a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">About</a><a href="book.html" class="block bg-hydr8-400 text-white text-center py-3 rounded-full font-semibold mt-4">Book Now</a></div></div></div>
+    <div id="menuOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <section class="pt-28 pb-12 px-5 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-3">MedSpa Services</h1>
+            <p class="text-gray-500 max-w-lg mx-auto mb-6">Advanced aesthetic treatments for skin rejuvenation, body contouring, and total wellness.</p>
+            <a href="book.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-7 py-3 rounded-full text-sm font-semibold transition-colors">Book a Treatment</a>
+        </div>
+    </section>
+
+    <section class="py-16 px-5">
+        <div class="max-w-4xl mx-auto">
+            <!-- Skin Rejuvenation -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-coral mb-6">Skin Rejuvenation</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Alma Opus Plasma Skin Rejuvenation</h3><p class="text-sm text-gray-500">Plasma technology for skin tightening, wrinkle reduction, and collagen stimulation.</p></div>
+                        <a href="book.html?service=alma-opus" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">ResuRface RF Skin Resurfacing</h3><p class="text-sm text-gray-500">Radiofrequency skin resurfacing for smoother, younger-looking skin.</p></div>
+                        <a href="book.html?service=resurface-rf" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Opus Colibri Eye Lift & Lesion Removal</h3><p class="text-sm text-gray-500">Precision plasma treatment for eye area lifting and lesion removal.</p></div>
+                        <a href="book.html?service=opus-colibri" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Alma LMNT+</h3><p class="text-sm text-gray-500">Advanced skin treatment technology for comprehensive rejuvenation.</p></div>
+                        <a href="book.html?service=alma-lmnt" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Targeted LED Light Therapy</h3><p class="text-sm text-gray-500">Non-invasive light therapy for skin healing, inflammation, and rejuvenation.</p></div>
+                        <a href="book.html?service=led-therapy" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body Contouring & Wellness -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-coral mb-6">Body Contouring & Wellness</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Alma Accent Prime Body Contouring</h3><p class="text-sm text-gray-500">Ultrasound and RF technology for fat reduction and skin tightening.</p></div>
+                        <a href="book.html?service=alma-accent" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Sauna Detox & Slimming Wrap</h3><p class="text-sm text-gray-500">Infrared sauna wrap for detoxification, calorie burn, and relaxation.</p></div>
+                        <a href="book.html?service=sauna-wrap" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Vacuum Therapy Enhancement</h3><p class="text-sm text-gray-500">Non-surgical body enhancement for booty and breast lifting.</p></div>
+                        <a href="book.html?service=vacuum-therapy" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Wood Therapy Body Shaping</h3><p class="text-sm text-gray-500">Manual body sculpting using specialized wooden tools for contouring.</p></div>
+                        <a href="book.html?service=wood-therapy" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Yeso-Therapy Body Wraps</h3><p class="text-sm text-gray-500">Plaster body wraps for inch loss, skin tightening, and toning.</p></div>
+                        <a href="book.html?service=yeso-therapy" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Vibration Plate Therapy</h3><p class="text-sm text-gray-500">Whole-body vibration for circulation, muscle activation, and recovery.</p></div>
+                        <a href="book.html?service=vibration-plate" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-coral mb-6">Products</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">CBD+ Professional Skincare Line</h3><p class="text-sm text-gray-500">Medical-grade CBD skincare for anti-aging, acne, and skin restoration.</p></div>
+                        <a href="book.html?service=cbd-skincare" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Inquire</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">LMNT Electrolyte Packets</h3><p class="text-sm text-gray-500">Premium electrolyte drink mix for daily hydration support.</p></div>
+                        <a href="book.html?service=lmnt-packets" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Inquire</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">PatchAid Vitamin Patches</h3><p class="text-sm text-gray-500">Transdermal vitamin patches for convenient daily supplementation.</p></div>
+                        <a href="book.html?service=patchaid" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Inquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center py-10 fade-up">
+                <a href="book.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-8 py-3.5 rounded-full font-semibold transition-colors">Book a Consultation</a>
+                <p class="text-sm text-gray-400 mt-3">or call <a href="tel:9287337776" class="text-hydr8-400">(928) 733-7776</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-hydr8-900 text-white py-10 px-5"><div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"><span class="text-lg font-bold"><span class="text-hydr8-200">HYDR8</span>AZ</span><div class="flex items-center gap-6 text-sm text-white/40"><a href="tel:9287337776" class="hover:text-white transition-colors">(928) 733-7776</a><a href="mailto:Hydr8AZ@gmail.com" class="hover:text-white transition-colors">Hydr8AZ@gmail.com</a></div><p class="text-xs text-white/25">© 2026 HYDR8AZ</p></div></footer>
+
+    <script>document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden'});document.getElementById('menuClose').addEventListener('click',closeMenu);document.getElementById('menuOverlay').addEventListener('click',closeMenu);function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow=''}const observer=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));</script>
+</body>
+</html>

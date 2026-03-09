@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now — HYDR8AZ IVs & MedSpa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{'hydr8':{50:'#ececfb',100:'#d5d5f7',200:'#ababef',300:'#8888e7',400:'#6565e5',500:'#4949a6',600:'#3a3a85',700:'#2c2c64',800:'#1e1e2f',900:'#141420'},'coral':'#E67373'},fontFamily:{'sans':['"Inter"','sans-serif'],'display':['"Playfair Display"','serif']}}}}</script>
+    <style>
+        html{scroll-behavior:smooth}
+        .nav-blur{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+        .mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}
+        .step{display:none}.step.active{display:block}
+        .service-option{transition:all .2s ease;cursor:pointer}
+        .service-option:hover{border-color:#6565e5;background:#ececfb}
+        .service-option.selected{border-color:#6565e5;background:#ececfb;box-shadow:0 0 0 2px #6565e5}
+        .time-slot{transition:all .15s ease;cursor:pointer}
+        .time-slot:hover{border-color:#6565e5;color:#6565e5}
+        .time-slot.selected{background:#6565e5;color:white;border-color:#6565e5}
+        .progress-dot{width:10px;height:10px;border-radius:50%;background:#d5d5f7;transition:all .3s ease}
+        .progress-dot.active{background:#6565e5;transform:scale(1.3)}
+        .progress-dot.done{background:#6565e5}
+        .fade-in{animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/90 border-b border-gray-200/50"><div class="max-w-6xl mx-auto px-5"><div class="flex items-center justify-between h-16"><a href="index.html" class="text-xl font-bold tracking-tight"><span class="text-hydr8-400">HYDR8</span><span class="text-gray-900">AZ</span></a><div class="hidden md:flex items-center gap-6"><a href="iv-therapy.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">IV Therapy</a><a href="medspa.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">MedSpa</a><a href="about.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">About</a><a href="book.html" class="bg-hydr8-400 hover:bg-hydr8-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors">Book Now</a></div><button id="menuBtn" class="md:hidden p-2 text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></div></nav>
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-white z-50 shadow-2xl"><div class="p-6"><div class="flex justify-between items-center mb-8"><span class="text-lg font-bold"><span class="text-hydr8-400">HYDR8</span>AZ</span><button id="menuClose" class="p-2 text-gray-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="space-y-2"><a href="iv-therapy.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">IV Therapy</a><a href="medspa.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">MedSpa</a><a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">About</a><a href="book.html" class="block bg-hydr8-400 text-white text-center py-3 rounded-full font-semibold mt-4">Book Now</a></div></div></div>
+    <div id="menuOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <section class="pt-28 pb-8 px-5 bg-white border-b border-gray-100">
+        <div class="max-w-xl mx-auto text-center">
+            <h1 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-2">Book an Appointment</h1>
+            <p class="text-gray-500 text-sm">Pick your service, choose a time, and we'll call to confirm.</p>
+            <!-- Progress -->
+            <div class="flex items-center justify-center gap-3 mt-6">
+                <div class="progress-dot active" data-step="1"></div>
+                <div class="w-8 h-px bg-gray-200"></div>
+                <div class="progress-dot" data-step="2"></div>
+                <div class="w-8 h-px bg-gray-200"></div>
+                <div class="progress-dot" data-step="3"></div>
+                <div class="w-8 h-px bg-gray-200"></div>
+                <div class="progress-dot" data-step="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 px-5">
+        <div class="max-w-xl mx-auto">
+
+            <!-- STEP 1: Category -->
+            <div class="step active fade-in" id="step1">
+                <h2 class="text-lg font-bold text-gray-900 mb-1">What are you looking for?</h2>
+                <p class="text-sm text-gray-400 mb-6">Select a category to see available services.</p>
+                <div class="space-y-3">
+                    <div class="service-option bg-white rounded-xl p-5 border-2 border-gray-100 flex items-center gap-4" data-category="iv">
+                        <div class="w-12 h-12 bg-hydr8-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-hydr8-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">IV Therapy</h3>
+                            <p class="text-sm text-gray-500">Hydration, wellness, recovery infusions</p>
+                        </div>
+                    </div>
+                    <div class="service-option bg-white rounded-xl p-5 border-2 border-gray-100 flex items-center gap-4" data-category="medspa">
+                        <div class="w-12 h-12 bg-hydr8-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-hydr8-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">MedSpa Services</h3>
+                            <p class="text-sm text-gray-500">Skin rejuvenation, body contouring, LED therapy</p>
+                        </div>
+                    </div>
+                    <div class="service-option bg-white rounded-xl p-5 border-2 border-gray-100 flex items-center gap-4" data-category="consultation">
+                        <div class="w-12 h-12 bg-hydr8-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-hydr8-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Not Sure — Help Me Choose</h3>
+                            <p class="text-sm text-gray-500">We'll recommend the right treatment for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Service -->
+            <div class="step" id="step2">
+                <div class="flex items-center gap-2 mb-1">
+                    <button class="back-btn text-hydr8-400 hover:text-hydr8-500 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                    <h2 class="text-lg font-bold text-gray-900">Pick your service</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-6 ml-7">Select the treatment you'd like to book.</p>
+                <div id="serviceList" class="space-y-2"></div>
+            </div>
+
+            <!-- STEP 3: Date & Time -->
+            <div class="step" id="step3">
+                <div class="flex items-center gap-2 mb-1">
+                    <button class="back-btn text-hydr8-400 hover:text-hydr8-500 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                    <h2 class="text-lg font-bold text-gray-900">When works for you?</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-6 ml-7">Pick a date and preferred time.</p>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-5 mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                    <input type="date" id="bookDate" class="w-full rounded-lg border border-gray-200 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-hydr8-300 focus:border-transparent">
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-5 mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Preferred Time</label>
+                    <div id="timeSlots" class="grid grid-cols-3 gap-2"></div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-5 mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Location Preference</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="location" value="mobile" class="w-4 h-4 text-hydr8-400 focus:ring-hydr8-400" checked>
+                            <span class="text-sm text-gray-700">Mobile — come to me</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="location" value="spa" class="w-4 h-4 text-hydr8-400 focus:ring-hydr8-400">
+                            <span class="text-sm text-gray-700">I'll visit the MedSpa</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="toStep4" class="w-full bg-hydr8-400 hover:bg-hydr8-500 text-white py-3.5 rounded-full font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>Continue</button>
+            </div>
+
+            <!-- STEP 4: Contact Info -->
+            <div class="step" id="step4">
+                <div class="flex items-center gap-2 mb-1">
+                    <button class="back-btn text-hydr8-400 hover:text-hydr8-500 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                    <h2 class="text-lg font-bold text-gray-900">Your Information</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-6 ml-7">We'll call you to confirm your appointment and arrange payment.</p>
+
+                <!-- Summary -->
+                <div class="bg-hydr8-50 rounded-xl p-5 border border-hydr8-100 mb-6">
+                    <p class="text-xs uppercase tracking-wider text-hydr8-500 font-semibold mb-2">Your Request</p>
+                    <p class="font-semibold text-gray-900" id="summaryService"></p>
+                    <p class="text-sm text-gray-600" id="summaryDateTime"></p>
+                    <p class="text-sm text-gray-600" id="summaryLocation"></p>
+                </div>
+
+                <form id="bookingForm" class="space-y-4">
+                    <div class="bg-white rounded-xl border border-gray-100 p-5 space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="custName" required placeholder="Your name" class="w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-hydr8-300 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="custPhone" required placeholder="(555) 123-4567" class="w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-hydr8-300 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <input type="email" id="custEmail" placeholder="your@email.com" class="w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-hydr8-300 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Notes <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <textarea id="custNotes" rows="2" placeholder="Anything we should know?" class="w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-hydr8-300 focus:border-transparent"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-hydr8-400 hover:bg-hydr8-500 text-white py-4 rounded-full font-bold text-base transition-colors">
+                        Request Appointment
+                    </button>
+                    <p class="text-xs text-gray-400 text-center">We'll call to confirm your appointment and discuss payment.</p>
+                </form>
+            </div>
+
+            <!-- SUCCESS -->
+            <div class="step" id="stepSuccess">
+                <div class="text-center py-10">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-3">Request Sent!</h2>
+                    <p class="text-gray-600 mb-2">Thank you for choosing HYDR8AZ.</p>
+                    <p class="text-gray-500 text-sm mb-8">We'll call you shortly to confirm your appointment time and arrange payment.</p>
+                    <div class="bg-hydr8-50 rounded-xl p-6 border border-hydr8-100 text-left max-w-sm mx-auto mb-8">
+                        <p class="font-semibold text-gray-900" id="confirmService"></p>
+                        <p class="text-sm text-gray-600" id="confirmDateTime"></p>
+                        <p class="text-sm text-gray-600" id="confirmLocation"></p>
+                        <p class="text-sm text-gray-600 mt-2" id="confirmName"></p>
+                        <p class="text-sm text-gray-600" id="confirmPhone"></p>
+                    </div>
+                    <a href="index.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-8 py-3 rounded-full font-semibold transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-hydr8-900 text-white py-10 px-5"><div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"><span class="text-lg font-bold"><span class="text-hydr8-200">HYDR8</span>AZ</span><div class="flex items-center gap-6 text-sm text-white/40"><a href="tel:9287337776" class="hover:text-white transition-colors">(928) 733-7776</a><a href="mailto:Hydr8AZ@gmail.com" class="hover:text-white transition-colors">Hydr8AZ@gmail.com</a></div><p class="text-xs text-white/25">© 2026 HYDR8AZ</p></div></footer>
+
+    <script>
+    // Mobile menu
+    document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden'});
+    document.getElementById('menuClose').addEventListener('click',closeMenu);document.getElementById('menuOverlay').addEventListener('click',closeMenu);
+    function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow=''}
+
+    // Services data
+    const services = {
+        iv: [
+            'Myers Cocktail','Immunity Boost','Boost Energy & Detox','Everything Under the Sun','GR8 Xpress Myers IV',
+            'High Dose Vitamin C','NAD+','Glutathione','Alpha Lipoic Acid IV','Amino Acids',
+            'Hangover Relief','Migraine Elimin8','Tummy Trouble','Afterburn Sunburn','Eradic8 Bundle',
+            'Jet Lag','Dexamethasone IV','Magnesium Chloride IV','Quench Rehydration','LR 1L',
+            'Acceler8 Athletic Performance','Allevi8 PMS/Menopause','Mommy-2-B','Concentr8 Brain Fog',
+            'Dicip8 Anxiety','Libido Boost — His & Hers','Rejuven8'
+        ],
+        medspa: [
+            'Alma Opus Plasma Skin Rejuvenation','ResuRface RF Skin Resurfacing','Opus Colibri Eye Lift',
+            'Alma LMNT+','Targeted LED Light Therapy','Alma Accent Prime Body Contouring',
+            'Sauna Detox & Slimming Wrap','Vacuum Therapy Enhancement','Wood Therapy Body Shaping',
+            'Yeso-Therapy Body Wraps','Vibration Plate Therapy'
+        ],
+        consultation: ['General Consultation — Help Me Choose']
+    };
+
+    // State
+    let state = { step: 1, category: '', service: '', date: '', time: '', location: 'mobile' };
+
+    function goTo(step) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById(step <= 4 ? `step${step}` : 'stepSuccess').classList.add('active','fade-in');
+        document.querySelectorAll('.progress-dot').forEach(d => {
+            const s = +d.dataset.step;
+            d.classList.toggle('active', s === step);
+            d.classList.toggle('done', s < step);
+        });
+        state.step = step;
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Step 1: Category selection
+    document.querySelectorAll('#step1 .service-option').forEach(el => {
+        el.addEventListener('click', () => {
+            state.category = el.dataset.category;
+            buildServiceList();
+            goTo(2);
+        });
+    });
+
+    // Build step 2 service list
+    function buildServiceList() {
+        const list = document.getElementById('serviceList');
+        const items = services[state.category] || [];
+        list.innerHTML = items.map(s =>
+            `<div class="service-option bg-white rounded-xl px-5 py-3.5 border-2 border-gray-100" data-service="${s}">
+                <span class="text-sm font-medium text-gray-900">${s}</span>
+            </div>`
+        ).join('');
+        list.querySelectorAll('.service-option').forEach(el => {
+            el.addEventListener('click', () => {
+                state.service = el.dataset.service;
+                buildTimeSlots();
+                goTo(3);
+            });
+        });
+
+        // Auto-select if coming from URL param
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('service')) {
+            const preselect = params.get('service');
+            // Just highlight it visually but don't auto-advance
+        }
+    }
+
+    // Build step 3 time slots
+    function buildTimeSlots() {
+        const isIV = state.category === 'iv' || state.category === 'consultation';
+        const startHour = isIV ? 7 : 12;
+        const endHour = isIV ? 19 : 16;
+        const slots = document.getElementById('timeSlots');
+        let html = '';
+        for (let h = startHour; h < endHour; h++) {
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            const display = h > 12 ? h - 12 : h;
+            html += `<button type="button" class="time-slot border border-gray-200 rounded-lg py-2.5 text-sm font-medium text-gray-700" data-time="${display}:00 ${ampm}">${display}:00 ${ampm}</button>`;
+            if (endHour - startHour > 6) {
+                html += `<button type="button" class="time-slot border border-gray-200 rounded-lg py-2.5 text-sm font-medium text-gray-700" data-time="${display}:30 ${ampm}">${display}:30 ${ampm}</button>`;
+            }
+        }
+        slots.innerHTML = html;
+        slots.querySelectorAll('.time-slot').forEach(btn => {
+            btn.addEventListener('click', () => {
+                slots.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                state.time = btn.dataset.time;
+                checkStep3();
+            });
+        });
+
+        // Set min date to tomorrow
+        const dateInput = document.getElementById('bookDate');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+        dateInput.value = '';
+        dateInput.addEventListener('change', () => { state.date = dateInput.value; checkStep3(); });
+    }
+
+    function checkStep3() {
+        document.getElementById('toStep4').disabled = !(state.date && state.time);
+    }
+
+    document.getElementById('toStep4').addEventListener('click', () => {
+        state.location = document.querySelector('input[name="location"]:checked').value;
+        // Populate summary
+        const dateObj = new Date(state.date + 'T12:00:00');
+        const dateStr = dateObj.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+        document.getElementById('summaryService').textContent = state.service;
+        document.getElementById('summaryDateTime').textContent = `${dateStr} at ${state.time}`;
+        document.getElementById('summaryLocation').textContent = state.location === 'mobile' ? 'Mobile — we come to you' : 'At the MedSpa';
+        goTo(4);
+    });
+
+    // Back buttons
+    document.querySelectorAll('.back-btn').forEach(btn => {
+        btn.addEventListener('click', () => goTo(state.step - 1));
+    });
+
+    // Form submit
+    document.getElementById('bookingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+        const dateObj = new Date(state.date + 'T12:00:00');
+        const dateStr = dateObj.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+
+        document.getElementById('confirmService').textContent = state.service;
+        document.getElementById('confirmDateTime').textContent = `${dateStr} at ${state.time}`;
+        document.getElementById('confirmLocation').textContent = state.location === 'mobile' ? 'Mobile — we come to you' : 'At the MedSpa';
+        document.getElementById('confirmName').textContent = name;
+        document.getElementById('confirmPhone').textContent = phone;
+
+        goTo(5);
+    });
+
+    // Handle URL params (pre-select category)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('service')) {
+        // Auto-advance to step 2 with IV category as default
+        state.category = 'iv';
+        buildServiceList();
+        goTo(2);
+    }
+    </script>
+</body>
+</html>

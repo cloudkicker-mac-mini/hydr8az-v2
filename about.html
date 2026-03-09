@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — HYDR8AZ IVs & MedSpa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{'hydr8':{50:'#ececfb',100:'#d5d5f7',200:'#ababef',300:'#8888e7',400:'#6565e5',500:'#4949a6',600:'#3a3a85',700:'#2c2c64',800:'#1e1e2f',900:'#141420'},'coral':'#E67373'},fontFamily:{'sans':['"Inter"','sans-serif'],'display':['"Playfair Display"','serif']}}}}</script>
+    <style>html{scroll-behavior:smooth}.nav-blur{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.fade-up{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}.fade-up.visible{opacity:1;transform:translateY(0)}.mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/90 border-b border-gray-200/50"><div class="max-w-6xl mx-auto px-5"><div class="flex items-center justify-between h-16"><a href="index.html" class="text-xl font-bold tracking-tight"><span class="text-hydr8-400">HYDR8</span><span class="text-gray-900">AZ</span></a><div class="hidden md:flex items-center gap-6"><a href="iv-therapy.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">IV Therapy</a><a href="medspa.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">MedSpa</a><a href="about.html" class="text-sm font-semibold text-hydr8-400">About</a><a href="book.html" class="bg-hydr8-400 hover:bg-hydr8-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors">Book Now</a></div><button id="menuBtn" class="md:hidden p-2 text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></div></nav>
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-white z-50 shadow-2xl"><div class="p-6"><div class="flex justify-between items-center mb-8"><span class="text-lg font-bold"><span class="text-hydr8-400">HYDR8</span>AZ</span><button id="menuClose" class="p-2 text-gray-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="space-y-2"><a href="iv-therapy.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">IV Therapy</a><a href="medspa.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">MedSpa</a><a href="about.html" class="block px-4 py-3 bg-hydr8-50 text-hydr8-400 rounded-xl font-medium">About</a><a href="book.html" class="block bg-hydr8-400 text-white text-center py-3 rounded-full font-semibold mt-4">Book Now</a></div></div></div>
+    <div id="menuOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <section class="pt-28 pb-12 px-5 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-3">About HYDR8AZ</h1>
+            <p class="text-gray-500 max-w-lg mx-auto">Your premier destination for rejuvenation and wellness in Lake Havasu City.</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-5">
+        <div class="max-w-4xl mx-auto">
+            <!-- Story -->
+            <div class="grid md:grid-cols-2 gap-10 items-center mb-16 fade-up">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Welcome to HYDR8AZ IVs & MedSpa, your premier destination for rejuvenation and wellness in Lake Havasu City, AZ. Our state-of-the-art facility offers a range of IV therapy treatments and medspa services designed to enhance your health and beauty.</p>
+                    <p class="text-gray-600 leading-relaxed">Our dedicated team of professionals is committed to providing personalized care in a relaxing environment, ensuring you leave feeling refreshed, revitalized, and ready to take on the world.</p>
+                </div>
+                <img src="assets/images/hero-woman-water.jpeg" alt="Wellness" class="rounded-2xl shadow-lg w-full h-72 object-cover">
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-6 mb-16 fade-up">
+                <div class="bg-hydr8-50 rounded-2xl p-8 border border-hydr8-100">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">To deliver top-quality IV hydration therapy that revitalizes and restores, providing our clients with unmatched wellness experiences in the comfort of their chosen environment.</p>
+                </div>
+                <div class="bg-hydr8-50 rounded-2xl p-8 border border-hydr8-100">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">To be the leading provider of mobile IV therapy in the Lake Havasu area, known for our commitment to health, convenience, and exceptional service.</p>
+                </div>
+            </div>
+
+            <!-- Location & Hours -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-8 mb-16 fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Visit Us</h3>
+                        <div class="space-y-3 text-gray-600">
+                            <p><strong class="text-gray-900">Address:</strong><br>205 English Village<br>1440 McCulloch Blvd N<br>Lake Havasu City, AZ 86403</p>
+                            <p><strong class="text-gray-900">Phone:</strong><br><a href="tel:9287337776" class="text-hydr8-400">(928) 733-7776</a></p>
+                            <p><strong class="text-gray-900">Email:</strong><br><a href="mailto:Hydr8AZ@gmail.com" class="text-hydr8-400">Hydr8AZ@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Hours</h3>
+                        <div class="space-y-3 text-gray-600">
+                            <p><strong class="text-gray-900">Mobile IVs:</strong><br>7:00 AM – 7:00 PM — Every Day</p>
+                            <p><strong class="text-gray-900">MedSpa:</strong><br>12:00 PM – 4:00 PM — Every Day</p>
+                            <p class="text-sm text-gray-400">After-hours appointments available</p>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <a href="https://www.facebook.com/Hydr8AZIVs/" target="_blank" class="w-10 h-10 bg-hydr8-50 hover:bg-hydr8-100 rounded-full flex items-center justify-center transition-colors"><svg class="w-5 h-5 text-hydr8-400" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                            <a href="https://www.instagram.com/hydr8az_ivs_and_medspa/" target="_blank" class="w-10 h-10 bg-hydr8-50 hover:bg-hydr8-100 rounded-full flex items-center justify-center transition-colors"><svg class="w-5 h-5 text-hydr8-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 rounded-xl overflow-hidden border border-gray-100">
+                    <iframe title="HYDR8AZ" src="https://maps.google.com/maps?q=1440%20McCulloch%20Blvd%20N%20Lake%20Havasu%20City%20AZ%2086403&t=&z=15&ie=UTF8&iwloc=&output=embed" class="w-full h-56" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center fade-up">
+                <a href="book.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-8 py-3.5 rounded-full font-semibold transition-colors">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-hydr8-900 text-white py-10 px-5"><div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"><span class="text-lg font-bold"><span class="text-hydr8-200">HYDR8</span>AZ</span><div class="flex items-center gap-6 text-sm text-white/40"><a href="tel:9287337776" class="hover:text-white transition-colors">(928) 733-7776</a><a href="mailto:Hydr8AZ@gmail.com" class="hover:text-white transition-colors">Hydr8AZ@gmail.com</a></div><p class="text-xs text-white/25">© 2026 HYDR8AZ</p></div></footer>
+
+    <script>document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden'});document.getElementById('menuClose').addEventListener('click',closeMenu);document.getElementById('menuOverlay').addEventListener('click',closeMenu);function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow=''}const observer=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));</script>
+</body>
+</html>

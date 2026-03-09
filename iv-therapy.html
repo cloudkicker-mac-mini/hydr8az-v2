@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IV Therapy Options — HYDR8AZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{'hydr8':{50:'#ececfb',100:'#d5d5f7',200:'#ababef',300:'#8888e7',400:'#6565e5',500:'#4949a6',600:'#3a3a85',700:'#2c2c64',800:'#1e1e2f',900:'#141420'},'coral':'#E67373'},fontFamily:{'sans':['"Inter"','sans-serif'],'display':['"Playfair Display"','serif']}}}}</script>
+    <style>
+        html{scroll-behavior:smooth}.nav-blur{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.fade-up{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}.fade-up.visible{opacity:1;transform:translateY(0)}.mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/90 border-b border-gray-200/50">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-xl font-bold tracking-tight"><span class="text-hydr8-400">HYDR8</span><span class="text-gray-900">AZ</span></a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="iv-therapy.html" class="text-sm font-semibold text-hydr8-400">IV Therapy</a>
+                    <a href="medspa.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">MedSpa</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-hydr8-400 transition-colors">About</a>
+                    <a href="book.html" class="bg-hydr8-400 hover:bg-hydr8-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors">Book Now</a>
+                </div>
+                <button id="menuBtn" class="md:hidden p-2 text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-white z-50 shadow-2xl"><div class="p-6"><div class="flex justify-between items-center mb-8"><span class="text-lg font-bold"><span class="text-hydr8-400">HYDR8</span>AZ</span><button id="menuClose" class="p-2 text-gray-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div><div class="space-y-2"><a href="iv-therapy.html" class="block px-4 py-3 bg-hydr8-50 text-hydr8-400 rounded-xl font-medium">IV Therapy</a><a href="medspa.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">MedSpa</a><a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-hydr8-50 rounded-xl font-medium">About</a><a href="book.html" class="block bg-hydr8-400 text-white text-center py-3 rounded-full font-semibold mt-4">Book Now</a></div></div></div>
+    <div id="menuOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+    <!-- HEADER -->
+    <section class="pt-28 pb-12 px-5 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-3">IV Therapy</h1>
+            <p class="text-gray-500 max-w-lg mx-auto mb-6">Customized infusions delivered by registered nurses — at our spa or anywhere in Lake Havasu.</p>
+            <a href="book.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-7 py-3 rounded-full text-sm font-semibold transition-colors">Book an IV Session</a>
+        </div>
+    </section>
+
+    <!-- TREATMENTS -->
+    <section class="py-16 px-5">
+        <div class="max-w-4xl mx-auto">
+            <!-- Wellness & Recovery -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-hydr8-400 mb-6">Wellness & Recovery</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Myers Cocktail</h3><p class="text-sm text-gray-500">Essential vitamins and minerals for overall wellness and energy.</p></div>
+                        <a href="book.html?service=myers-cocktail" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Immunity Boost</h3><p class="text-sm text-gray-500">Fight off viruses and infections with potent immune-strengthening nutrients.</p></div>
+                        <a href="book.html?service=immunity-boost" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Boost Energy & Detox</h3><p class="text-sm text-gray-500">Natural energy restoration and toxin elimination support.</p></div>
+                        <a href="book.html?service=boost-energy-detox" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Everything Under the Sun</h3><p class="text-sm text-gray-500">Our most comprehensive infusion — Myers Cocktail plus premium add-ons.</p></div>
+                        <a href="book.html?service=everything-under-the-sun" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">GR8 Xpress Myers IV</h3><p class="text-sm text-gray-500">A faster version of the classic Myers Cocktail for those short on time.</p></div>
+                        <a href="book.html?service=gr8-xpress" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">High Dose Vitamin C</h3><p class="text-sm text-gray-500">Powerful antioxidant therapy for immune support and cellular repair.</p></div>
+                        <a href="book.html?service=high-dose-vitamin-c" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">NAD+</h3><p class="text-sm text-gray-500">Anti-aging cellular repair — brain function, energy, and longevity.</p></div>
+                        <a href="book.html?service=nad" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Glutathione</h3><p class="text-sm text-gray-500">Master antioxidant for detox, skin brightening, and liver support.</p></div>
+                        <a href="book.html?service=glutathione" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Alpha Lipoic Acid IV</h3><p class="text-sm text-gray-500">Antioxidant support for nerve health, blood sugar, and cellular energy.</p></div>
+                        <a href="book.html?service=alpha-lipoic-acid" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Amino Acids</h3><p class="text-sm text-gray-500">Building blocks for muscle repair, metabolism, and overall recovery.</p></div>
+                        <a href="book.html?service=amino-acids" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relief & Recovery -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-hydr8-400 mb-6">Relief & Recovery</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Hangover Relief</h3><p class="text-sm text-gray-500">Rapid rehydration — nausea, headache, and brain fog relief.</p></div>
+                        <a href="book.html?service=hangover-relief" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Migraine Elimin8</h3><p class="text-sm text-gray-500">Fast relief from migraines with targeted nutrients and hydration.</p></div>
+                        <a href="book.html?service=migraine-elimin8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Tummy Trouble</h3><p class="text-sm text-gray-500">Calm digestive distress, reduce nausea, and replenish fluids.</p></div>
+                        <a href="book.html?service=tummy-trouble" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Afterburn Sunburn</h3><p class="text-sm text-gray-500">Hydration and skin repair for sun damage and heat exposure.</p></div>
+                        <a href="book.html?service=afterburn" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Eradic8 Bundle</h3><p class="text-sm text-gray-500">Aggressive cold, flu, and COVID symptom relief bundle.</p></div>
+                        <a href="book.html?service=eradic8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Jet Lag</h3><p class="text-sm text-gray-500">Rehydrate and recover from travel fatigue and time zone changes.</p></div>
+                        <a href="book.html?service=jet-lag" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Dexamethasone IV</h3><p class="text-sm text-gray-500">Anti-inflammatory treatment for severe inflammation and allergic reactions.</p></div>
+                        <a href="book.html?service=dexamethasone" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Magnesium Chloride IV</h3><p class="text-sm text-gray-500">Muscle relaxation, nerve function, and cardiovascular support.</p></div>
+                        <a href="book.html?service=magnesium" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Quench Rehydration</h3><p class="text-sm text-gray-500">Pure rehydration with electrolytes — restores fluid and mineral balance.</p></div>
+                        <a href="book.html?service=quench" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">LR 1L</h3><p class="text-sm text-gray-500">Lactated Ringers for rapid rehydration and electrolyte balance.</p></div>
+                        <a href="book.html?service=lr1l" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized -->
+            <div class="mb-12 fade-up">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-hydr8-400 mb-6">Specialized</h2>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Acceler8 Athletic Performance</h3><p class="text-sm text-gray-500">Recover faster, boost stamina, and improve muscle function.</p></div>
+                        <a href="book.html?service=acceler8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Allevi8 PMS/Menopause</h3><p class="text-sm text-gray-500">Relief from hormonal symptoms — cramps, bloating, mood swings.</p></div>
+                        <a href="book.html?service=allevi8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Mommy-2-B</h3><p class="text-sm text-gray-500">Safe prenatal hydration and nutrient support during pregnancy.</p></div>
+                        <a href="book.html?service=mommy2b" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Concentr8 Brain Fog</h3><p class="text-sm text-gray-500">Sharpen focus, improve memory, and fight mental fatigue.</p></div>
+                        <a href="book.html?service=concentr8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Dicip8 Anxiety</h3><p class="text-sm text-gray-500">Calming support for stress, anxiety, and nervous system balance.</p></div>
+                        <a href="book.html?service=dicip8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Libido Boost — His & Hers</h3><p class="text-sm text-gray-500">Natural libido enhancement with amino acids and adaptogens.</p></div>
+                        <a href="book.html?service=libido-boost" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between gap-4">
+                        <div><h3 class="font-semibold text-gray-900">Rejuven8</h3><p class="text-sm text-gray-500">Beauty-focused — skin, hair, and nail health from the inside out.</p></div>
+                        <a href="book.html?service=rejuven8" class="flex-shrink-0 text-xs font-semibold text-hydr8-400 border border-hydr8-400 px-4 py-2 rounded-full hover:bg-hydr8-400 hover:text-white transition-colors">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center py-10 fade-up">
+                <p class="text-gray-500 mb-4">Not sure which one is right for you?</p>
+                <a href="book.html" class="inline-flex bg-hydr8-400 hover:bg-hydr8-500 text-white px-8 py-3.5 rounded-full font-semibold transition-colors">Book a Consultation</a>
+                <p class="text-sm text-gray-400 mt-3">or call <a href="tel:9287337776" class="text-hydr8-400">(928) 733-7776</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-hydr8-900 text-white py-10 px-5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <span class="text-lg font-bold"><span class="text-hydr8-200">HYDR8</span>AZ</span>
+            <div class="flex items-center gap-6 text-sm text-white/40">
+                <a href="tel:9287337776" class="hover:text-white transition-colors">(928) 733-7776</a>
+                <a href="mailto:Hydr8AZ@gmail.com" class="hover:text-white transition-colors">Hydr8AZ@gmail.com</a>
+            </div>
+            <p class="text-xs text-white/25">© 2026 HYDR8AZ</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.remove('hidden');document.body.style.overflow='hidden'});document.getElementById('menuClose').addEventListener('click',closeMenu);document.getElementById('menuOverlay').addEventListener('click',closeMenu);function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.add('hidden');document.body.style.overflow=''}
+        const observer=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>
