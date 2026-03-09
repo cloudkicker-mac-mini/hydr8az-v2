@@ -345,22 +345,59 @@
 
     }
 
-    // Build step 3 time slots
-    function buildTimeSlots() {
-        const isIV = state.category === 'iv' || state.category === 'consultation';
-        const startHour = isIV ? 7 : 12;
-        const endHour = isIV ? 19 : 16;
+    // Get hours based on category + location
+    function getHours() {
+        const loc = document.querySelector('input[name="location"]:checked').value;
+        // MedSpa location = medspa hours regardless of service category
+        if (loc === 'spa') return { start: 12, end: 16 };
+        // Mobile: IV/consultation = 7am-7pm, medspa services = 12pm-4pm
+        if (state.category === 'medspa') return { start: 12, end: 16 };
+        return { start: 7, end: 19 };
+    }
+
+    function isToday(dateStr) {
+        const now = new Date();
+        const sel = new Date(dateStr + 'T00:00:00');
+        return sel.getFullYear() === now.getFullYear() && sel.getMonth() === now.getMonth() && sel.getDate() === now.getDate();
+    }
+
+    function renderTimeSlots() {
+        const { start, end } = getHours();
         const slots = document.getElementById('timeSlots');
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMin = now.getMinutes();
+        const todaySelected = state.date && isToday(state.date);
+        const useHalfHours = (end - start) > 6;
         let html = '';
-        for (let h = startHour; h < endHour; h++) {
-            const ampm = h >= 12 ? 'PM' : 'AM';
-            const display = h > 12 ? h - 12 : h;
-            html += `<button type="button" class="time-slot border border-gray-200 rounded-lg py-2.5 text-sm font-medium text-gray-700" data-time="${display}:00 ${ampm}">${display}:00 ${ampm}</button>`;
-            if (endHour - startHour > 6) {
-                html += `<button type="button" class="time-slot border border-gray-200 rounded-lg py-2.5 text-sm font-medium text-gray-700" data-time="${display}:30 ${ampm}">${display}:30 ${ampm}</button>`;
+        let prevSelected = state.time; // preserve selection if still valid
+        let selectionStillValid = false;
+
+        for (let h = start; h < end; h++) {
+            const times = useHalfHours ? [`${h}:00`, `${h}:30`] : [`${h}:00`];
+            for (const t of times) {
+                const [hr, mn] = t.split(':').map(Number);
+                // Skip past times if today
+                if (todaySelected && (hr < currentHour || (hr === currentHour && mn <= currentMin))) continue;
+                const ampm = hr >= 12 ? 'PM' : 'AM';
+                const display = hr > 12 ? hr - 12 : hr;
+                const label = `${display}:${String(mn).padStart(2,'0')} ${ampm}`;
+                const dataTime = label;
+                const selected = (prevSelected === dataTime);
+                if (selected) selectionStillValid = true;
+                html += `<button type="button" class="time-slot border border-gray-200 rounded-lg py-2.5 text-sm font-medium text-gray-700${selected ? ' selected' : ''}" data-time="${dataTime}" data-h="${hr}" data-m="${mn}">${label}</button>`;
             }
         }
+
+        if (!html) {
+            html = '<p class="text-sm text-coral col-span-3 text-center py-4">No available times — please pick a different date.</p>';
+        }
+
         slots.innerHTML = html;
+
+        // Clear selection if it's no longer valid
+        if (!selectionStillValid) { state.time = ''; }
+
         slots.querySelectorAll('.time-slot').forEach(btn => {
             btn.addEventListener('click', () => {
                 slots.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
@@ -369,14 +406,37 @@
                 checkStep3();
             });
         });
+        checkStep3();
+    }
 
-        // Set min date to tomorrow
+    // Build step 3 — called once when entering step 3
+    function buildTimeSlots() {
         const dateInput = document.getElementById('bookDate');
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        dateInput.min = tomorrow.toISOString().split('T')[0];
+        // Min date = today
+        const today = new Date();
+        dateInput.min = today.toISOString().split('T')[0];
         dateInput.value = '';
-        dateInput.addEventListener('change', () => { state.date = dateInput.value; checkStep3(); });
+        state.date = '';
+        state.time = '';
+
+        // Remove old listeners by cloning
+        const newDate = dateInput.cloneNode(true);
+        dateInput.parentNode.replaceChild(newDate, dateInput);
+        newDate.addEventListener('change', () => {
+            state.date = newDate.value;
+            state.time = ''; // reset time on date change
+            renderTimeSlots();
+        });
+
+        // Location change re-renders slots
+        document.querySelectorAll('input[name="location"]').forEach(r => {
+            r.addEventListener('change', () => {
+                state.time = ''; // reset time on location change
+                renderTimeSlots();
+            });
+        });
+
+        renderTimeSlots();
     }
 
     function checkStep3() {
