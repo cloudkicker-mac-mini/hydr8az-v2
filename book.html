@@ -263,12 +263,7 @@
             });
         });
 
-        // Auto-select if coming from URL param
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('service')) {
-            const preselect = params.get('service');
-            // Just highlight it visually but don't auto-advance
-        }
+
     }
 
     // Build step 3 time slots
@@ -342,13 +337,28 @@
         goTo(5);
     });
 
-    // Handle URL params (pre-select category)
+    // Handle URL params — auto-select service and skip to step 3
+    function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
     const params = new URLSearchParams(window.location.search);
-    if (params.get('service')) {
-        // Auto-advance to step 2 with IV category as default
-        state.category = 'iv';
-        buildServiceList();
-        goTo(2);
+    const svcParam = params.get('service');
+    if (svcParam) {
+        // Build reverse lookup: slug → {category, service}
+        let match = null;
+        for (const [cat, items] of Object.entries(services)) {
+            for (const name of items) {
+                if (slugify(name) === svcParam || slugify(name).includes(svcParam) || svcParam.includes(slugify(name).split('-')[0])) {
+                    match = { category: cat, service: name };
+                    break;
+                }
+            }
+            if (match) break;
+        }
+        if (match) {
+            state.category = match.category;
+            state.service = match.service;
+            buildTimeSlots();
+            goTo(3);
+        }
     }
     </script>
 </body>
